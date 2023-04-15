@@ -1,6 +1,6 @@
 import User from "../models/User.js"
 
-/* READ */
+// READ
 export const getUser = async (req, res) => {
     try {
         const { id } = req.params;
@@ -31,13 +31,14 @@ export const getUserFriends = async (req, res) => {
     }
 }
 
-/* UPDATE */
+// UPDATE
 export const addRemoveFriend = async (req, res) => {
     try {
         const { id, friendId } = req.params;
         const user = await User.findById(id);
         const friend = await User.findById(friendId);
 
+        // if friend is in friend list of the user, change the user and friends friend list by removing each other else add to each others friends
         if (user.friends.includes(friendId)) {
             user.friends = user.friends.filter((id) => id !== friendId);
             friend.friends = friend.friends.filter((id) => id !== id);
@@ -49,6 +50,7 @@ export const addRemoveFriend = async (req, res) => {
         await user.save()
         await friend.save();
 
+        // get all updated friends and sent 
         const friends = await Promise.all(
             user.friends.map((id) => User.findById(id))
         );

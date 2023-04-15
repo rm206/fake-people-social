@@ -4,11 +4,11 @@ import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
 
-/* READ */
+// READ
 router.get("/", verifyToken, getFeedPosts);
 router.get("/:userId/posts", verifyToken, getUserPosts);
 
-/* UPADTE */
+// UPADTE
 router.patch("/:id/like", verifyToken, likePost);
 
 export default router;
