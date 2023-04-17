@@ -2,6 +2,7 @@ import User from "../models/User.js"
 
 // READ
 export const getUser = async (req, res) => {
+    // get 1 user from the id
     try {
         const { id } = req.params;
         const user = await User.findById(id);
@@ -12,8 +13,8 @@ export const getUser = async (req, res) => {
 }
 
 export const getUserFriends = async (req, res) => {
+    // find 1 user and then get all friends
     try {
-
         const { id } = req.params;
         const user = await User.findById(id);
 
