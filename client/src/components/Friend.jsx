@@ -43,6 +43,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
                 <Box
                     onClick={() => {
                         navigate(`/profile/${friendId}`);
+                        // when a freind page is opened and then try to go to another user, components are not re-rendering
                         navigate(0);
                     }}
                 >
