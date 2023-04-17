@@ -21,6 +21,7 @@ const UserWidget = ({ userId, picturePath }) => {
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
 
+    // update user widget when user enters the page
     const getUser = async () => {
         const response = await fetch(`http://localhost:3001/users/${userId}`, {
             method: "GET",

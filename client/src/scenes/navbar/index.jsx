@@ -56,7 +56,7 @@ const Navbar = () => {
                         },
                     }}
                 >
-                    FakePeople
+                    People Place
                 </Typography>
                 {isNonMobileScreens && (
                     <FlexBetween
