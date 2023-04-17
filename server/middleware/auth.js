@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export const verifyToken = async (req, res, next) => {
+    // check token and authorize
     try {
         let token = req.header("Authorization");
 

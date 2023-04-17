@@ -4,6 +4,7 @@ import User from "../models/User.js";
 
 // REGISTER USER
 export const register = async (req, res) => {
+    // get details from body and add to database
     try {
         const {
             firstName,
@@ -42,6 +43,7 @@ export const register = async (req, res) => {
 // LOGGING IN
 export const login = async (req, res) => {
     try {
+        // get email and password from the request body, authenticate and return token
         const { email, password } = req.body;
         const user = await User.findOne({ email: email });
         if (!user) {

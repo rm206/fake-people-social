@@ -29,6 +29,7 @@ export const createPost = async (req, res) => {
 
 // READ
 export const getFeedPosts = async (req, res) => {
+    // get all posts from all users
     try {
         const post = await Post.find()
         res.status(200).json(post);
@@ -38,6 +39,7 @@ export const getFeedPosts = async (req, res) => {
 }
 
 export const getUserPosts = async (req, res) => {
+    // posts for one user only
     try {
         const { userId } = req.params;
         const post = await Post.find({ userId }); // posts with one constraint
